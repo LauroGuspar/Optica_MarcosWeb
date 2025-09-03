@@ -1,0 +1,450 @@
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Catálogo de Monturas | Óptica Divino Niño del Milagro</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+
+    <!-- Precarga -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- SweetAlert2 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.0/dist/sweetalert2.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/stylesHeader_Footer.css" />
+    <link rel="stylesheet" href="CSS/stylesCatalogo.css" />
+
+    <style>
+      .toast-container {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header>
+      <nav class="navbar navbar-expand-lg p-3 border-bottom">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="index.html"
+            >Óptica Divino Niño del Milagro</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav"
+            aria-controls="nav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="nav">
+            <ul
+              class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-3"
+            >
+              <li class="nav-item position-relative">
+                <a class="nav-link" href="#catalogo">Catálogo</a>
+              </li>
+              <li class="nav-item position-relative">
+                <a class="nav-link" href="#ofertas">Ofertas</a>
+              </li>
+              <li class="nav-item position-relative">
+                <a class="nav-link" href="#contacto">Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link position-relative"
+                  href="Carrito.html"
+                  title="Carrito"
+                >
+                  <i class="bi bi-cart3 fs-5"></i>
+                  <span
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                    >0</span
+                  >
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login_register.html" title="Usuario">
+                  <i class="bi bi-person-circle fs-5"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- HERO -->
+    <section class="bg-light py-5 border-bottom">
+      <div
+        class="container d-lg-flex justify-content-between align-items-center gap-4"
+      >
+        <div class="col-lg-6">
+          <h1 class="display-6 fw-bold mb-3">
+            Encuentra tu <span class="text-primary">montura ideal</span>
+          </h1>
+          <p class="lead mb-4">La mejor calidad para su comodidad visual</p>
+          <a href="#catalogo" class="btn btn-primary btn-lg">Ver catálogo</a>
+        </div>
+        <div class="col-lg-5">
+          <img
+            class="img-fluid rounded-4 shadow-soft zoom-on-hover"
+            alt="Monturas modernas en exhibición"
+            src="img/Catalogo/Lentes_header.avif"
+          />
+        </div>
+      </div>
+    </section>
+
+    <main class="py-4" id="catalogo">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Sidebar filtros -->
+          <aside class="col-lg-3">
+            <div class="card shadow-soft border-0 sticky-top-2">
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <h5 class="card-title m-0">Filtros</h5>
+                  <button
+                    id="btnLimpiar"
+                    class="btn btn-sm btn-outline-secondary"
+                  >
+                    Limpiar
+                  </button>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label" for="inputBuscar">Buscar</label>
+                  <input
+                    id="inputBuscar"
+                    type="search"
+                    class="form-control"
+                    placeholder="Modelo, color, forma..."
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <label class="form-label">Categoría</label>
+                  </div>
+                  <div class="d-flex flex-wrap gap-2">
+                    <span
+                      class="badge text-bg-light filter-chip"
+                      data-filter-group="categoria"
+                      data-value="hombre"
+                      >Hombre</span
+                    >
+                    <span
+                      class="badge text-bg-light filter-chip"
+                      data-filter-group="categoria"
+                      data-value="mujer"
+                      >Mujer</span
+                    >
+                    <span
+                      class="badge text-bg-light filter-chip"
+                      data-filter-group="categoria"
+                      data-value="unisex"
+                      >Unisex</span
+                    >
+                    <span
+                      class="badge text-bg-light filter-chip"
+                      data-filter-group="categoria"
+                      data-value="niño"
+                      >Niño</span
+                    >
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Forma</label>
+                  <div class="d-flex flex-wrap gap-2">
+                    <span
+                      class="badge text-bg-light filter-chip"
+                      data-filter-group="forma"
+                      data-value="rectangular"
+                      >Rectangular</span
+                    >
+                    <span
+                      class="badge text-bg-light filter-chip"
+                      data-filter-group="forma"
+                      data-value="redonda"
+                      >Redonda</span
+                    >
+                    <span
+                      class="badge text-bg-light filter-chip"
+                      data-filter-group="forma"
+                      data-value="aviador"
+                      >Aviador</span
+                    >
+                    <span
+                      class="badge text-bg-light filter-chip"
+                      data-filter-group="forma"
+                      data-value="cat-eye"
+                      >Cat‑Eye</span
+                    >
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Material</label>
+                  <div class="d-flex flex-wrap gap-2">
+                    <span
+                      class="badge text-bg-light filter-chip"
+                      data-filter-group="material"
+                      data-value="acetato"
+                      >Acetato</span
+                    >
+                    <span
+                      class="badge text-bg-light filter-chip"
+                      data-filter-group="material"
+                      data-value="metal"
+                      >Metal</span
+                    >
+                    <span
+                      class="badge text-bg-light filter-chip"
+                      data-filter-group="material"
+                      data-value="titanio"
+                      >Titanio</span
+                    >
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="rangoPrecio" class="form-label"
+                    >Precio máximo: <span id="lblPrecio">S/ 250</span></label
+                  >
+                  <input
+                    type="range"
+                    class="form-range"
+                    min="80"
+                    max="400"
+                    step="10"
+                    id="rangoPrecio"
+                    value="250"
+                  />
+                </div>
+
+                <div class="mb-2">
+                  <label class="form-label" for="selectOrden">Ordenar</label>
+                  <select id="selectOrden" class="form-select">
+                    <option value="relevancia">Relevancia</option>
+                    <option value="precio-asc">Precio: menor a mayor</option>
+                    <option value="precio-desc">Precio: mayor a menor</option>
+                    <option value="nombre-asc">Nombre: A → Z</option>
+                    <option value="nombre-desc">Nombre: Z → A</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Lista de productos -->
+          <section class="col-lg-9">
+            <div
+              class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3"
+            >
+              <span id="contador" class="text-muted"
+                >Mostrando 0 productos</span
+              >
+              <div id="chipsActivos" class="d-flex flex-wrap gap-2"></div>
+            </div>
+
+            <div id="grid" class="row g-3">
+              <!-- Productos (ejemplos) -->
+            </div>
+
+            <nav
+              class="mt-4 d-flex justify-content-center"
+              aria-label="Paginación"
+            >
+              <ul class="pagination" id="paginacion"></ul>
+            </nav>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- OFERTAS / CTA -->
+    <section
+      id="ofertas"
+      class="py-5 bg-body-secondary border-top border-bottom"
+    >
+      <div class="container text-center">
+        <h2 class="fw-bold mb-3">Promo 2x1 en Monturas para niños</h2>
+        <p class="mb-4">
+          Lleva tus monturas con <strong>descuento especial</strong> al comprar
+          dos monturas para niños. Válido hasta fin de mes.
+        </p>
+        <a href="#contacto" class="btn btn-primary btn-lg">Obtener Cupón</a>
+      </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-5 pb-3">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 mb-4">
+            <h5 class="fw-bold mb-3">Mi Empresa</h5>
+            <p class="text-white-50">Innovación en tecnología y servicios.</p>
+            <ul class="list-unstyled text-white-50" id="contacto">
+              <li><i class="bi bi-telephone-fill me-2"></i>+123456789</li>
+              <li>
+                <i class="bi bi-envelope-fill me-2"></i>info@miempresa.com
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <h5 class="fw-bold mb-3">Links Útiles</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="footer-link">Acerca de nosotros</a></li>
+              <li><a href="#" class="footer-link">Portafolio</a></li>
+              <li><a href="#" class="footer-link">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h5 class="fw-bold mb-3">Mantente Conectado</h5>
+            <form>
+              <div class="input-group mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Tu correo"
+                  id="emailFooter"
+                />
+                <button class="btn btn-primary" type="button">
+                  <i class="bi bi-send-fill"></i>
+                </button>
+              </div>
+            </form>
+            <div class="d-flex mt-3">
+              <a href="#" class="text-white me-3"
+                ><i class="bi bi-facebook fs-5"></i
+              ></a>
+              <a href="#" class="text-white me-3"
+                ><i class="bi bi-twitter fs-5"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/optica_divino"
+                target="_blank"
+                class="text-white"
+                ><i class="bi bi-instagram fs-5"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container-fluid text-center text-white-50 mt-4 pt-4 border-top border-secondary"
+      >
+        <p class="mb-0">
+          &copy; <span id="year"></span> Óptica Divino Niño del Milagro. Todos
+          los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <div class="toast-container end-0 pt-5 p-3">
+      <!-- Toast Predeterminado -->
+      <div
+        class="toast align-items-center text-white bg-primary border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        id="liveToastPrimary"
+      >
+        <div class="d-flex">
+          <div class="toast-body"></div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Cerrar"
+          ></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Cuadricula -->
+    <div class="modal fade" id="modalProducto" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitulo">Detalle de montura</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Cerrar"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <img id="modalImg" src="" alt="" class="img-fluid rounded-3" />
+              </div>
+              <div class="col-md-6">
+                <p
+                  class="mb-1 small text-uppercase text-muted"
+                  id="modalCategoria"
+                ></p>
+                <h3 class="mb-2" id="modalNombre"></h3>
+                <p class="mb-2">
+                  <span class="price h4" id="modalPrecio"></span>
+                  <span class="old-price ms-2" id="modalPrecioOld"></span>
+                </p>
+                <p class="mb-3" id="modalDescripcion"></p>
+                <div class="d-flex flex-wrap gap-2 mb-3" id="modalSpecs"></div>
+                <button class="btn btn-primary" id="btnModalCotizar">
+                  Añadir a la cotización
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      xintegrity="sha384-YvpcrYf0tY3lHB60NNWqj4sM7K2Jz5t5X0MABfLw4T0tU5bH+F5J3G4WpWzK5I9Kj1G0/p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!-- JS Normal -->
+    <script src="JS/scriptCatalogo.js"></script>
+    <script src="JS/scriptActualizarBadge.js"></script>
+  </body>
+</html>

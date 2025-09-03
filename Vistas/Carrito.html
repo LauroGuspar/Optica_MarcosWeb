@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carrito | Óptica Visión Clara</title>
+    <!-- Bootstrap 5.3 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+
+    <!-- SweetAlert2 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.0/dist/sweetalert2.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/stylesHeader_Footer.css" />
+    <style>
+      .small-muted {
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+
+      .toast-container {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg p-3 border-bottom">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="index.html"
+            >Óptica Divino Niño del Milagro</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav"
+            aria-controls="nav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="nav">
+            <ul
+              class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-3"
+            >
+              <li class="nav-item position-relative">
+                <a class="nav-link" href="index.html#catalogo">Catálogo</a>
+              </li>
+              <li class="nav-item position-relative">
+                <a class="nav-link" href="index.html#ofertas">Ofertas</a>
+              </li>
+              <li class="nav-item position-relative">
+                <a class="nav-link" href="#contacto">Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link position-relative"
+                  href="Carrito.html"
+                  title="Carrito"
+                >
+                  <i class="bi bi-cart3 fs-5"></i>
+                  <span
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                    >0</span
+                  >
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login_register.html" title="Usuario">
+                  <i class="bi bi-person-circle fs-5"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Tu Carrito</h1>
+        <div>
+          <button id="btnVaciar" class="btn btn-outline-danger btn-sm">
+            Vaciar carrito
+          </button>
+        </div>
+      </div>
+
+      <!-- Tabla de productos -->
+      <div class="table-responsive mb-4">
+        <table class="table align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Producto</th>
+              <th style="width: 120px">Cantidad</th>
+              <th>Precio Unitario</th>
+              <th>Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tbodyCarrito">
+            <!-- Productos dinámicos -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <h4>Métodos de pago</h4>
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="pago"
+                  id="pagoTarjeta"
+                  checked
+                />
+                <label class="form-check-label" for="pagoTarjeta"
+                  >Tarjeta de crédito/débito</label
+                >
+              </div>
+              <div id="formTarjeta" class="mt-3">
+                <h6>Ingrese los datos de su tarjeta:</h6>
+                <form id="tarjetaForm" class="row g-2" onsubmit="return false;">
+                  <div class="col-12">
+                    <input
+                      id="cardNumber"
+                      type="text"
+                      class="form-control"
+                      placeholder="Número de tarjeta (16 dígitos)"
+                      required
+                      inputmode="numeric"
+                      maxlength="19"
+                    />
+                  </div>
+                  <div class="col-6">
+                    <input
+                      id="cardExpiry"
+                      type="text"
+                      class="form-control"
+                      placeholder="MM/AA"
+                      required
+                      maxlength="5"
+                    />
+                  </div>
+                  <div class="col-6">
+                    <input
+                      id="cardCVV"
+                      type="text"
+                      class="form-control"
+                      placeholder="CVV"
+                      required
+                      inputmode="numeric"
+                      maxlength="4"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <input
+                      id="cardName"
+                      type="text"
+                      class="form-control"
+                      placeholder="Nombre del titular"
+                      required
+                    />
+                  </div>
+                </form>
+              </div>
+
+              <div class="form-check mt-3">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="pago"
+                  id="pagoYape"
+                />
+                <label class="form-check-label" for="pagoYape"
+                  >Yape (Escanea el QR)</label
+                >
+              </div>
+              <div id="qrYape" class="mt-3 d-none text-center">
+                <img
+                  src="qr-yape.png"
+                  alt="QR de Yape"
+                  class="img-fluid rounded"
+                  style="max-width: 200px"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <h4>Total: <span id="total">S/ 0.00</span></h4>
+          <button id="btnFinalizar" class="btn btn-primary btn-lg mt-3">
+            Realizar Compra
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-dark text-white pt-5 pb-3">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 mb-4">
+            <h5 class="fw-bold mb-3">Mi Empresa</h5>
+            <p class="text-white-50">Innovación en tecnología y servicios.</p>
+            <ul class="list-unstyled text-white-50">
+              <li><i class="bi bi-telephone-fill me-2"></i>+123456789</li>
+              <li>
+                <i class="bi bi-envelope-fill me-2"></i>info@miempresa.com
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <h5 class="fw-bold mb-3">Links Útiles</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="footer-link">Acerca de nosotros</a></li>
+              <li><a href="#" class="footer-link">Portafolio</a></li>
+              <li><a href="#" class="footer-link">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h5 class="fw-bold mb-3">Mantente Conectado</h5>
+            <form>
+              <div class="input-group mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Tu correo"
+                  id="emailFooter"
+                />
+                <button class="btn btn-primary" type="button">
+                  <i class="bi bi-send-fill"></i>
+                </button>
+              </div>
+            </form>
+            <div class="d-flex mt-3">
+              <a href="#" class="text-white me-3"
+                ><i class="bi bi-facebook fs-5"></i
+              ></a>
+              <a href="#" class="text-white me-3"
+                ><i class="bi bi-twitter fs-5"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/optica_divino"
+                target="_blank"
+                class="text-white"
+                ><i class="bi bi-instagram fs-5"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container-fluid text-center text-white-50 mt-4 pt-4 border-top border-secondary"
+      >
+        <p class="mb-0">
+          &copy; <span id="year"></span> Óptica Divino Niño del Milagro. Todos
+          los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <div class="toast-container end-0 pt-5 p-3">
+      <!-- Toast de Éxito -->
+      <div
+        class="toast align-items-center text-white bg-success border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        id="liveToastSuccess"
+      >
+        <div class="d-flex">
+          <div class="toast-body"></div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Cerrar"
+          ></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      xintegrity="sha384-YvpcrYf0tY3lHB60NNWqj4sM7K2Jz5t5X0MABfLw4T0tU5bH+F5J3G4WpWzK5I9Kj1G0/p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.0/dist/sweetalert2.all.min.js"></script>
+
+    <!---JS Normal--->
+    <script src="JS/scriptCarrito.js"></script>
+    <script src="JS/scriptActualizarBadge.js"></script>
+  </body>
+</html>

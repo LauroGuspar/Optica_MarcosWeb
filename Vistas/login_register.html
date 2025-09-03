@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Responsivo con Bootstrap</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+
+    <!-- Precarga -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/stylesHeader_Footer.css" />
+    <link rel="stylesheet" href="CSS/stylesLogin_Register.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg p-3 border-bottom">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="index.html"
+            >Óptica Divino Niño del Milagro</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav"
+            aria-controls="nav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="nav">
+            <ul
+              class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-3"
+            >
+              <li class="nav-item position-relative">
+                <a class="nav-link" href="index.html#catalogo">Catálogo</a>
+              </li>
+              <li class="nav-item position-relative">
+                <a class="nav-link" href="index.html#ofertas">Ofertas</a>
+              </li>
+              <li class="nav-item position-relative">
+                <a class="nav-link" href="#contacto">Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link position-relative"
+                  href="Carrito.html"
+                  title="Carrito"
+                >
+                  <i class="bi bi-cart3 fs-5"></i>
+                  <span
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                    >0</span
+                  >
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login_register.html" title="Usuario">
+                  <i class="bi bi-person-circle fs-5"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div id="container">
+        <div class="form-container sign-up">
+          <!-- Mobile -->
+          <form
+            class="d-flex flex-column align-items-center justify-content-center text-center p-4 p-md-5"
+          >
+            <h2 class="mb-3 fw-bold">Crear Cuenta</h2>
+            <h6 class="mb-3">Utilice su correo para registrarse</h6>
+            <input
+              type="text"
+              placeholder="Nombre"
+              class="form-control border-0 my-2"
+              id="nameRegister"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              class="form-control border-0 my-2"
+              id="emailRegister"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              class="form-control border-0 my-2"
+              id="passwordRegister"
+            />
+            <button
+              type="button"
+              class="btn btn-primary mt-2 px-5 text-uppercase"
+            >
+              Registrarse
+            </button>
+            <p class="d-md-none mt-4 mb-0">
+              ¿Ya tienes una cuenta?
+              <a id="loginMobile" class="mobile-toggle-link">Inicia Sesión</a>
+            </p>
+          </form>
+        </div>
+
+        <div class="form-container sign-in">
+          <form
+            class="d-flex flex-column align-items-center justify-content-center text-center p-4 p-md-5"
+          >
+            <h2 class="mb-3 fw-bold">Iniciar Sesión</h2>
+            <h6 class="mb-3">Utilice su email y contraseña</h6>
+            <input
+              type="email"
+              placeholder="Email"
+              class="form-control border-0 my-2"
+              id="emailLogin"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              class="form-control border-0 my-2"
+              id="passwordLogin"
+            />
+            <a href="#" class="text-dark my-2 text-decoration-none small"
+              >¿Olvidaste tu contraseña?</a
+            >
+            <button
+              type="button"
+              class="btn btn-primary mt-2 px-5 text-uppercase"
+            >
+              Iniciar Sesión
+            </button>
+            <p class="d-md-none mt-4 mb-0">
+              ¿No tienes una cuenta?
+              <a id="registerMobile" class="mobile-toggle-link">Regístrate</a>
+            </p>
+          </form>
+        </div>
+
+        <div class="toggle-container">
+          <div class="toggle">
+            <div class="toggle-panel toggle-left">
+              <h2 class="fw-bold">Ya tienes cuenta?</h2>
+              <p class="lead px-4">...</p>
+              <button
+                class="btn btn-primary mt-2 px-5 text-uppercase"
+                id="login"
+              >
+                Iniciar Sesión
+              </button>
+            </div>
+            <div class="toggle-panel toggle-right">
+              <h2 class="fw-bold">Aún no estas Registrado?</h2>
+              <p class="lead px-4">...</p>
+              <button
+                class="btn btn-primary mt-2 px-5 text-uppercase"
+                id="register"
+              >
+                Registrarse
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-dark text-white pt-5 pb-3">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 mb-4">
+            <h5 class="fw-bold mb-3">Mi Empresa</h5>
+            <p class="text-white-50">Innovación en tecnología y servicios.</p>
+            <ul class="list-unstyled text-white-50">
+              <li><i class="bi bi-telephone-fill me-2"></i>+123456789</li>
+              <li>
+                <i class="bi bi-envelope-fill me-2"></i>info@miempresa.com
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <h5 class="fw-bold mb-3">Links Útiles</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="footer-link">Acerca de nosotros</a></li>
+              <li><a href="#" class="footer-link">Portafolio</a></li>
+              <li><a href="#" class="footer-link">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h5 class="fw-bold mb-3">Mantente Conectado</h5>
+            <form>
+              <div class="input-group mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Tu correo"
+                  id="emailFooter"
+                />
+                <button class="btn btn-primary" type="button">
+                  <i class="bi bi-send-fill"></i>
+                </button>
+              </div>
+            </form>
+            <div class="d-flex mt-3">
+              <a href="#" class="text-white me-3"
+                ><i class="bi bi-facebook fs-5"></i
+              ></a>
+              <a href="#" class="text-white me-3"
+                ><i class="bi bi-twitter fs-5"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/optica_divino"
+                target="_blank"
+                class="text-white"
+                ><i class="bi bi-instagram fs-5"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container-fluid text-center text-white-50 mt-4 pt-4 border-top border-secondary"
+      >
+        <p class="mb-0">
+          &copy; <span id="year"></span> Óptica Divino Niño del Milagro. Todos
+          los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="JS/scriptLogin.js"></script>
+    <script src="JS/scriptActualizarBadge.js"></script>
+  </body>
+</html>
